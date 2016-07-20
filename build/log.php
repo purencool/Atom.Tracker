@@ -93,7 +93,7 @@ if(isset($_GET['mode'])){
 	            </td>
 	          </tr> 
       
-    	<?}}} // END if, foreach, if is_array
+    	<?php }}} // END if, foreach, if is_array
  
     break;  
     
@@ -114,7 +114,7 @@ if(isset($_GET['mode'])){
 	            <td><?=date_nice($task['date_start'])?></td>
 	            <td><?=($task['date_end'] != '')?date_nice($task['date_end']):''?></td>
 	            <td>
-	             <?if($task['date_start'] != '' && $task['date_end'] != ''){
+	             <?php if($task['date_start'] != '' && $task['date_end'] != ''){
 	                time_nice($task['date_end'] - $task['date_start']);
 	              }else{
 	                echo  0;
@@ -130,7 +130,7 @@ if(isset($_GET['mode'])){
 	            </td>
 	          </tr> 
 	      
-	    <?}}} // END if, foreach, if is_array
+	    <?php }}} // END if, foreach, if is_array
 
     break;  
 		
@@ -166,4 +166,4 @@ if(isset($_GET['mode'])){
    
  } // END switch
   
-}?>
+}
