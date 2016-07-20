@@ -1,4 +1,4 @@
-<?
+<?php
 # Save the data:
 function save($data){
  	$json = json_encode($data); // Convert data array back to json
@@ -24,4 +24,3 @@ function time_nice($seconds){
   
   echo '<span class="hours">'.$h.'</span> hrs : <span class="minutes">'.$m.'</span> mins'; // Display result   
 }
-?>
