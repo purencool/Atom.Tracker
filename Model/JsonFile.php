@@ -13,12 +13,14 @@ namespace TimeTracking\Model;
  * @author purencool
  */
 class JsonFile {
+    
+        private $config;
 
 	/**
          * 
          */
-	public function __construct() {
-
+	public function __construct($config) {
+            $this->config = $config;
 	}
     
     

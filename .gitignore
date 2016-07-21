@@ -45,3 +45,6 @@ Temporary Items
 .project
 /nbproject/private/
 nbproject/
+data/*
+config/config.php
+/nbproject/private/
