@@ -27,7 +27,11 @@ class JsonFile {
          * 
          */
         public function getJsonFile() {
-            return 'This is a test to see';
+            if(!file_exists ('data.json')) {
+                 fopen('data.json', 'w') or die("Can't create file");;
+                 return 'File created';
+             } 
+            
         }
     
     //put your code here
