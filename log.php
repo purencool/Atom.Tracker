@@ -81,15 +81,22 @@ if(isset($_GET['mode'])){
 	        	?>
 	          
 	          <tr>
-	            <td><?=$task['task']?></td>
-	            <td><?=date_nice($task['date_start'])?></td>
-	            <td><?=($task['date_end'] != '')?date_nice($task['date_end']):''?></td>
-	            <td data-seconds="<?=$seconds?>"><?time_nice($seconds)?></td>
+	            <td><?php echo $task['task'];?></td>
+	            <td><?php echo date_nice($task['date_start']);?></td>
+	            <td><?php echo ($task['date_end'] != '')?date_nice($task['date_end']):'';?></td>
+	            <td data-seconds="<?php echo $seconds;?>"><?time_nice($seconds)?></td>
 	            <td class="btn-cell">
-	              <button data-id="<?=$task['id']?>" class="btn btn-block btn-primary btn-stop"  <?=($task['date_end'] != '')?'disabled':''?>><?=i('stop')?></button>
+	              <button data-id="<?php echo $task['id'];?>"
+                              class="btn btn-block btn-primary btn-stop" 
+                               <?php echo ($task['date_end'] != '')?'disabled':'';?>> 
+                               <?php echo i('stop');?>
+                      </button>
 	            </td>
 	            <td class="btn-cell">
-	              <button data-id="<?=$task['id']?>" class="btn btn-block btn-danger btn-delete"><?=i('times')?></button>
+	              <button data-id="<?php echo$task['id']?>" 
+                              class="btn btn-block btn-danger btn-delete">
+                              <?php echo i('times'); ?>
+                      </button>
 	            </td>
 	          </tr> 
       
@@ -110,9 +117,9 @@ if(isset($_GET['mode'])){
 	        if($task['status'] != 1){ ?>
 	          
 	          <tr>
-	            <td><?=$task['task']?></td>
-	            <td><?=date_nice($task['date_start'])?></td>
-	            <td><?=($task['date_end'] != '')?date_nice($task['date_end']):''?></td>
+	            <td><?php echo $task['task']?></td>
+	            <td><?php echo date_nice($task['date_start'])?></td>
+	            <td><?php echo ($task['date_end'] != '')?date_nice($task['date_end']):''?></td>
 	            <td>
 	             <?php if($task['date_start'] != '' && $task['date_end'] != ''){
 	                time_nice($task['date_end'] - $task['date_start']);
@@ -122,11 +129,11 @@ if(isset($_GET['mode'])){
 	            </td>
 	            <td class="btn-cell">
 	              <?if($task['date_end'] == ''){?>
-	                <button data-id="<?=$task['id']?>" class="btn btn-block btn-primary btn-stop"><?=i('stop')?></button>
+	                <button data-id="<?php echo $task['id']?>" class="btn btn-block btn-primary btn-stop"><?php echo i('stop')?></button>
 	              <?}?>
 	            </td>
 	            <td class="btn-cell">
-	              <button data-id="<?=$task['id']?>" class="btn btn-block btn-primary btn-restore"><?=i('refresh')?></button>
+	              <button data-id="<?php echo $task['id']?>" class="btn btn-block btn-primary btn-restore"><?php echo i('refresh')?></button>
 	            </td>
 	          </tr> 
 	      
