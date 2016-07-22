@@ -22,7 +22,13 @@ class JsonFile {
 	public function __construct($config) {
             $this->config = $config;
 	}
-    
+        
+        /**
+         * 
+         */
+        public function getJsonFile() {
+            return 'This is a test to see';
+        }
     
     //put your code here
 }
