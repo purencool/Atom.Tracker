@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: baseline;
+}
+.clear-both {
+    clear:both;
+    width:100%;
+}
+
+*:disabled {
+    background-color:#cccccc !important;
+    border:none !important;
+}
+.btn-cell{width:61px;}
+
+
+
+
+.pomodoro-left{
+    float:left;
+    width:20%;
+    
+}
+
+
+ .settings {
+  width: 350px;
+  padding-bottom: 15px;
+  display: table;
+  margin: auto;
+  position: relative;
+  text-align: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+ .settings .description {
+  font-size: 15px;
+}
+ .settings .value {
+  font-size: 30px;
+}
+ .settings .session {
+  width: 108px;
+  float: right;
+}
+ .settings .session .description {
+  color: #2ecc71;
+}
+ .settings .break {
+  width: 100px;
+  float: left;
+}
+ .settings .break .description {
+  color: #e74c3c;
+}
+ .settings .control {
+  font-size: 33px;
+  cursor: pointer;
+}
+ .settings .control:hover {
+  color: #95a5a6;
+}
+ .next-pomodoro {
+  margin-left: 30px;
+  float: left;
+  cursor: pointer;
+  font-weight: bold;
+}
+ .reset-pomodoro {
+  margin-right: 30px;
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+}
+ .pomodoro {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  clear: both;
+  border-radius: 50%;
+  border: 3px #2ecc71 solid;
+  position: relative;
+  overflow: hidden;
+  text-shadow: none;
+}
+ .pomodoro .fill {
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  left: 0;
+}
+ .pomodoro .fill.session {
+  bottom: 0;
+  z-index: 2;
+  background-color: #2ecc71;
+}
+ .pomodoro .fill.break {
+  top: 0;
+  z-index: 3;
+  background-color: #c0392b;
+}
+ .pomodoro .time-left {
+  top: 32%;
+  left: 50%;
+  margin-left: -125px;
+  width: 250px;
+  text-align: center;
+  font-size: 20px;
+  z-index: 4;
+  position: absolute;
+}
+ .pomodoro .status {
+  bottom: 35%;
+  left: 50%;
+  margin-left: -125px;
+  width: 250px;
+  text-align: center;
+  font-size: 15px;
+  z-index: 4;
+  position: absolute;
+}

@@ -140,6 +140,7 @@ if(isset($_GET['mode'])){
 	    <?php }}} // END if, foreach, if is_array
 
     break;  
+    break;  
 		
 		# Tally results:      
     case 'tally':
