@@ -14,8 +14,11 @@ $hoursSpent = $input_array_from_controller['time_spent'];
     <div class="row">
         <form id="form-new" method="get">
             <div class="form-group">
-                <div class="col-xs-10">
+                 <div class="col-xs-7">
                     <input id="task" class="form-control" name="task" placeholder="Enter new task name..."> 
+                 </div>    
+                 <div class="col-xs-3">
+                    <input id="project" class="form-control" name="project" placeholder="Project name..."> 
                 </div><!-- END col -->   
                 <div class="col-xs-2">
                     <button type="submit" name="submit" class="btn btn-block btn-success">
@@ -31,6 +34,7 @@ $hoursSpent = $input_array_from_controller['time_spent'];
         <thead>
             <tr>
                 <th>Task</th>
+                <th>Project</th>
                 <th>Start</th>
                 <th>End</th>
                 <th>Time</th>

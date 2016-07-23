@@ -34,10 +34,11 @@ class Tasks {
      * @param type $data
      * @param type $taskName
      */
-    private function newTasks($data, $taskName) {
+    private function newTasks($data, $taskName, $taskProject) {
         $id = time();
         $data[$id]['id'] = $id;
         $data[$id]['task'] = $taskName;
+        $data[$id]['project'] = $taskProject;
         $data[$id]['date_start'] = $id;
         $data[$id]['date_end'] = '';
         $data[$id]['date_entered'] = $id;
@@ -132,13 +133,13 @@ class Tasks {
      * @param type $mode
      * @param type $taskId
      */
-    public function getTasksSwitchResult($data, $mode, $taskId, $taskName = NULL) {
+    public function getTasksSwitchResult($data, $mode, $taskId, $taskName = NULL, $taskProject = NULL) {
       
         $return = '';
         if ($mode != '') {
             switch ($mode) {
                 case 'new':
-                     $this->newTasks($data,$taskName);
+                     $this->newTasks($data,$taskName, $taskProject);
                     break;
                 case 'status':
                     $this->statusTasks($data, $taskId);

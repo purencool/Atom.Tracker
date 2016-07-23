@@ -19,6 +19,7 @@ if (is_array($data)) {
             ?>
             <tr>
                 <td><?php echo $task['task']; ?></td>
+                <td><?php echo $task['project']; ?></td>
                 <td><?php echo $format->dateNice($task['date_start']); ?></td>
                 <td><?php echo ($task['date_end'] != '') ? $format->dateNice($task['date_end']) : ''; ?></td>
                 <td data-seconds="<?php echo $seconds; ?>"><?php echo $format->timeNice($seconds); ?></td>

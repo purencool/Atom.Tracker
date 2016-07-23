@@ -48,9 +48,10 @@ class LogController {
         
         $mode = isset($_GET['mode'])? $_GET['mode'] : '';
         $taskId = isset($_GET['id'])? $_GET['id'] : '';
+        $taskProject = isset($_GET['project'])? $_GET['project'] : '';
         $taskName = isset($_GET['task'])? $_GET['task'] : '';
         $taskObj =  new Tasks();
-        $taskResult = $taskObj->getTasksSwitchResult($this->getJsonObj(), $mode, $taskId,$taskName);
+        $taskResult = $taskObj->getTasksSwitchResult($this->getJsonObj(), $mode, $taskId,$taskName,$taskProject);
         $array =array(
             'mode' => $mode,
             'task' => $task,

@@ -87,7 +87,7 @@ class JsonFile {
     function csvToString() {
 
         // Headings and rows
-        $headings = array('id','task', 'date_start', 'date_end', 'date_entered','status');
+        $headings = array('id','task','project','date_start', 'date_end', 'date_entered','status');
         $array = $this->getLoadJsonFile(); 
    
         $fh = fopen('php://output', 'w');

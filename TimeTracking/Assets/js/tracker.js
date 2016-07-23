@@ -34,6 +34,7 @@ $(document).on('ready', function () {
     $('#form-new').on('submit', function (e) {
         e.preventDefault(); // Stop from submitting a form
         var data = $(this).serialize(); // Serial form data
+        //alert(data);
         $.ajax({
             url: url + '?mode=new&' + data,
             type: 'GET',
