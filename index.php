@@ -1,34 +1,7 @@
 <?php
-
-/**
- * 
- * @param type $directory
- */
-function loadClassPhp($directory) {
-    if (is_dir($directory)) {
-        $scan = scandir($directory);
-        unset($scan[0], $scan[1]); //unset . and ..
-        foreach ($scan as $file) {
-
-            if ($directory != './TimeTracking/Templates' && $directory != './TimeTracking/Data'
-            ) {
-                if (is_dir($directory . "/" . $file)) {
-                    loadClassPhp($directory . "/" . $file);
-                } else {
-                    if (strpos($file, '.php') !== false) {
-                        include_once($directory . "/" . $file);
-                    }
-                }
-            }
-        }
-    }
-}
-
-loadClassPhp('./TimeTracking');
-
+include 'functions.php';
 $obj = new \TimeTracking\Controller\StandAloneControllers\IndexController();
-$feedback = $obj->index();
-include('./functions.php');
+$feedback = $obj->getSetup();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +23,7 @@ include('./functions.php');
         <div id='feedback'>
             <?php echo $feedback; ?>
         </div>
-        <?php include_once './TimeTracking/Templates/pomodoroTimer.php'; ?>
-        <?php include_once './TimeTracking/Templates/index.php'; ?>
-        <?php include_once './TimeTracking/Templates/footer.php'; ?>
+        <?php print $obj->index();?>
+        
     </body>
 </html>

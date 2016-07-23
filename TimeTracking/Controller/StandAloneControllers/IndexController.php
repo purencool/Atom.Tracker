@@ -1,12 +1,17 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @package    TimeTracking
+ * @category   Controller
+ * @license    GPL3
  */
 
 namespace TimeTracking\Controller\StandAloneControllers;
+
+use TimeTracking\Model\ObStart;
+use TimeTracking\Model\JsonFile;
+use TimeTracking\Config\DefaultConfig;
 
 /**
  * Description of IndexController
@@ -15,11 +20,22 @@ namespace TimeTracking\Controller\StandAloneControllers;
  */
 class IndexController {
 
+    private $obStart;
+
     /**
      * 
      */
     public function __construct() {
-        
+        $this->obStart = new ObStart();
+    }
+
+    /**
+     *
+     * @access public
+     */
+    public function getSetup() {
+        $jsonFileObject = new JsonFile(new DefaultConfig());
+        return $jsonFileObject->getJsonFile();
     }
 
     /**
@@ -27,15 +43,10 @@ class IndexController {
      * @access public
      */
     public function index() {
-        //-- Setup config
-       // if (file_exists('../../Config/config.php')) {
-       //     include '../../Config/config.php';
-       // } else {
-       //     include '../../Config/default.config.php';
-       // }
-       $config= '';
-        $jsonFileObject = new \TimeTracking\Model\JsonFile($config);
-        return  $jsonFileObject->getJsonFile();
+        $ret = $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'pomodoroTimer.php');
+        $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'index.php');
+        $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'footer.php');
+        return $ret;
     }
 
 }

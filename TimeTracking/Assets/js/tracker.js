@@ -1,4 +1,4 @@
-var globalPath = 'log.php'
+var globalPath = 'log.php';
 
 // Build Log Table
 function build_log() {
@@ -22,23 +22,24 @@ $(document).on('ready', function () {
     setInterval(function () {
 
         var mode = $('#btn-swap').data('mode');
-        if (mode == 'restore') {
+        if (mode === 'restore') {
             build_log(); // Rebuild log table
         }
         tally_log(); // Retally
     }, 30000);   // Refresh every 30 seconds
 
-    var url = 'log.php'; // Ajax file
+    var url = globalPath; // Ajax file
 
     // New Task Form:    
     $('#form-new').on('submit', function (e) {
         e.preventDefault(); // Stop from submitting a form
-        var data = $(this).serialize(); // Seriale form data
+        var data = $(this).serialize(); // Serial form data
+        alert( data);
         $.ajax({
             url: url + '?mode=new&' + data,
             type: 'GET',
             success: function (result) {
-                if (result != 2) { //If no error
+                if (result !== 2) { //If no error
                     build_log(); // Rebuild log table
                     $('#task').val(''); // Empty task input Field
                 } // END if
@@ -54,7 +55,7 @@ $(document).on('ready', function () {
             url: url + '?mode=status&id=' + id,
             type: 'GET',
             success: function (result) {
-                if (result != 2) { //If no error
+                if (result !== 2) { //If no error
                     build_restore(); // Rebuild log table
                 } // END if
             } // END success
@@ -66,7 +67,7 @@ $(document).on('ready', function () {
     $('#btn-swap').on('click', function (e) {
         e.preventDefault(); // Stop from refreshing the page
         var mode = $(this).data('mode'); // The build mode
-        if (mode == 'restore') {
+        if (mode === 'restore') {
             build_restore(); // Build the restore table
             $(this).data('mode', 'log'); // Set swap mode to log
             $(this).find('span').html('Log'); // Change swap link label
@@ -85,7 +86,7 @@ $(document).on('ready', function () {
         $.ajax({
             url: url + '?mode=delete&id=' + id,
             success: function (result) {
-                if (result != 2) { // If no error
+                if (result !== 2) { // If no error
                     build_log(); // Rebuild log table
                 } // END if
             } // END success
@@ -99,12 +100,11 @@ $(document).on('ready', function () {
         $.ajax({
             url: url + '?mode=stop&id=' + id,
             success: function (result) {
-                if (result != 2) { // If no error
+                if (result !== 2) { // If no error
                     build_log(); // Rebuild log table
                 } // END if
             } // END success
         }); // END ajax
     }); // END .btn-stop on click
-
 }); // END Document Ready
 
