@@ -100,7 +100,7 @@ class Tasks {
      * @param type $data
      * @return type
      */
-    private function tallyAllTasks($data) {
+    public function tallyAllTasks($data) {
         $format = new Formatting();
         $count = 0; // Initial value for tally
         
@@ -154,12 +154,6 @@ class Tasks {
                     break;
                 case 'restore':
                     $return = $this->restoreTasks($data);
-                    break;
-                case 'tally':
-                    $return = $this->tallyAllTasks($data);
-                    break;
-                default:
-                    $return = 'buildtasks';
                     break;
             } // END switch
         } else {

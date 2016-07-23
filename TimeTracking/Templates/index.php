@@ -1,12 +1,16 @@
+<?php
+$hoursSpent = $input_array_from_controller['time_spent'];
+?>
 <div class="container-fluid">
-    <header class="row">
+    <div class="row">
         <div class="col-xs-8">
             <small><a data-mode="restore" id="btn-swap" href="#" class="">Enter <span>Restore</span> Mode</a></small>
+            <small><a data-mode="cvs" id="" href="?mode=csv" class="">CSV Update</a></small>
+            <small><a data-mode="download-csv" id="" href="download.php?mode=download-csv" class="">CSV Download</a></small>
+            <small><a data-mode="download-json" id="" href="download.php?mode=download-json" class="">Json Download</a></small>
         </div><!-- END col --> 
-        <div class="col-xs-4 text-right">
-            <strong>Total Hours:</strong> <span id="tally"></span>
-        </div>
-    </header>
+        <div class="col-xs-4 text-right"><strong>Total Hours:</strong><?php echo $hoursSpent; ?></div>
+    </div>
     <div class="row">
         <form id="form-new" method="get">
             <div class="form-group">

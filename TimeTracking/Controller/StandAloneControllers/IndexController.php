@@ -12,6 +12,7 @@ namespace TimeTracking\Controller\StandAloneControllers;
 use TimeTracking\Model\ObStart;
 use TimeTracking\Model\JsonFile;
 use TimeTracking\Config\DefaultConfig;
+use TimeTracking\Model\Tasks;
 
 /**
  * Description of IndexController
@@ -21,21 +22,36 @@ use TimeTracking\Config\DefaultConfig;
 class IndexController {
 
     private $obStart;
+    
+    private $jsonFileObject;
 
     /**
      * 
      */
     public function __construct() {
         $this->obStart = new ObStart();
+        $this->jsonFileObject = new JsonFile(new DefaultConfig());
     }
 
     /**
      *
      * @access public
      */
-    public function getSetup() {
-        $jsonFileObject = new JsonFile(new DefaultConfig());
-        return $jsonFileObject->getJsonFile();
+    public function getHoursSpent() { 
+        $data = $this->jsonFileObject->getLoadJsonFile();
+        $taskObj =  new Tasks();
+        return array('time_spent'=>$taskObj->tallyAllTasks($data));
+
+    }
+    
+    
+    
+    /**
+     *
+     * @access public
+     */
+    public function getSetup() {  
+        return $this->jsonFileObject->getJsonFile();
     }
 
     /**
@@ -43,8 +59,12 @@ class IndexController {
      * @access public
      */
     public function index() {
+        $mode = isset($_GET['mode'])? $_GET['mode'] : '';
+        if($mode == 'csv') {
+           $this->jsonFileObject->jsonToCSV(); 
+        }
         $ret = $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'pomodoroTimer.php');
-        $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'index.php');
+        $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'index.php',$this->getHoursSpent());
         $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'footer.php');
         return $ret;
     }

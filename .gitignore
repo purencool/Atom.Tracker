@@ -45,7 +45,7 @@ Temporary Items
 .project
 /nbproject/private/
 nbproject/
-data/*
 config/config.php
 /nbproject/private/
+TimeTracking/Data/*
 data.json

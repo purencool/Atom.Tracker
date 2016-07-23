@@ -35,8 +35,9 @@ class JsonFile {
      * @return string
      */
     public function getJsonFile() {
-        if (!file_exists('data.json')) {
-            fopen('data.json', 'w') or die("Can't create file");
+        $path = $this->config->jsonPath;
+        if (!file_exists($path)) {
+            fopen($path, 'w') or die("Can't create file");
             return 'File created';
         }
     }
@@ -46,7 +47,7 @@ class JsonFile {
      * @return type
      */
     public function getLoadJsonFile() {
-        $log = 'data.json'; // Path to log
+        $log = $this->config->jsonPath;// Path to log
         $json = file_get_contents($log); // Load log contents
         $data = json_decode($json, true); // Convert JSON to array
         if (is_array($data)) {
@@ -55,10 +56,27 @@ class JsonFile {
         return $data;
     }
 
+    /**
+     * 
+     * @param type $data
+     */
     public function setSaveJsonFile($data) {
         $json = json_encode($data); // Convert data array back to json
-        $myfile = fopen("data.json", "w") or die("Unable to open file!"); // Open file
+        $myfile = fopen($this->config->jsonPath, "w") or die("Unable to open file!"); // Open file
         fwrite($myfile, $json); // Save file
+    }
+    
+    /**
+     * 
+     */
+    public function jsonToCSV() {
+        $data = $this->getLoadJsonFile();
+        $fp = fopen($this->config->csvPath, 'w');
+        foreach ($data  as $fields) {
+            fputcsv($fp, $fields);
+        }
+
+        fclose($fp);
     }
 
 }

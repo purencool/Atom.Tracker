@@ -16,6 +16,7 @@ namespace TimeTracking\Config;
 class DefaultConfig {
    
     public $storageType = 'json';
-    public $jsonPath    = 'TimeTracking\data\data.json';
+    public $jsonPath    = 'TimeTracking/Data/data.json';
+    public $csvPath    = 'TimeTracking/Data/data.csv';
 
 }

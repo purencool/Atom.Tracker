@@ -43,5 +43,5 @@ class Formatting {
 
         return '<span class="hours">' . $h . '</span> hrs : <span class="minutes">' . $m . '</span> mins'; // Display result   
     }
-
+   
 }
