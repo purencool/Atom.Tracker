@@ -18,10 +18,26 @@ if (is_array($data)) {
             }
             ?>
             <tr>
-                <td><?php echo $task['task']; ?></td>
-                <td><?php echo $task['project']; ?></td>
-                <td><?php echo $format->dateNice($task['date_start']); ?></td>
-                <td><?php echo ($task['date_end'] != '') ? $format->dateNice($task['date_end']) : ''; ?></td>
+                <td>
+                    <input id="update-task" class="form-control" 
+                            name="update-task[<?php echo $task['id']; ?>][task]" 
+                            value="<?php echo $task['task']; ?>" />        
+                </td>
+                <td>
+                    <input id="update-project" class="form-control" 
+                            name="update-project[<?php echo $task['id']; ?>][project]" 
+                            value="<?php echo $task['project']; ?>" />
+                </td>
+                <td>
+                    <input id="update-start-time" class="form-control" 
+                            name="update-start-time[<?php echo $task['id']; ?>][start]" 
+                            value="<?php echo $format->dateNice($task['date_start']); ?>" />
+                </td>
+                <td>
+                    <input id="update-end-time" class="form-control" 
+                            name="update-end-time[<?php echo $task['id']; ?>][end]" 
+                            value="<?php echo ($task['date_end'] != '') ? $format->dateNice($task['date_end']) : ''; ?>" />          
+                </td>
                 <td data-seconds="<?php echo $seconds; ?>"><?php echo $format->timeNice($seconds); ?></td>
                 <td class="btn-cell">
                     <button data-id="<?php echo $task['id']; ?>"

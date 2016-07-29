@@ -4,10 +4,9 @@
        Your browser does not support the audio element.
    </audio>  
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- App JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.js"></script>
 <script src="./TimeTracking/Assets/js/tracker.js"></script>
 <script src="./TimeTracking/Assets/js/pomodoro.js"></script>
+<script src="./TimeTracking/Assets/js/date-and-time.js"></script>
