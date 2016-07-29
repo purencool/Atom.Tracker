@@ -12,9 +12,10 @@ $feedback = $obj->getSetup();
         <title>Tracker</title>
         <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css"/>
         <link rel="shortcut icon" href="./TimeTracking/Assets/images/favicon.ico" />
         <link rel="stylesheet" href="./TimeTracking/Assets/css/styles.css" />
-        <link rel="stylesheet" href="./TimeTracking/Assets/datetimepicker/jquery.datetimepicker.css"/>
+
     </head>
     <body>
         <?php print $obj->index();?> 

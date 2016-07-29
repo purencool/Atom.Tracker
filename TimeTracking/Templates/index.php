@@ -9,7 +9,7 @@ $hoursSpent = $input_array_from_controller['time_spent'];
                 <li><a data-mode="cvs" id="" href="?mode=csv" class="">CSV Update</a></li>
                 <li><a data-mode="download-csv" id="" href="download.php?mode=download-csv" class="">CSV Download</a></li>
                 <li><a data-mode="download-json" id="" href="download.php?mode=download-json" class="">Json Download</a></li>
-                <li><a data-mode="add-time" id="" href="#" class="">Add Time</a></li>
+                <li><a data-mode="add-time-manually" id="add-time-manually" href="#" class="">Add Time Manually</a></li>
             </ul>
         </div><!-- END col --> 
         <div class="col-xs-4 text-right"><strong>Total Hours:</strong><?php echo $hoursSpent; ?></div>
@@ -34,16 +34,16 @@ $hoursSpent = $input_array_from_controller['time_spent'];
     <div class="row">
         <form id="manually-add-time" method="get" name="manually-add-time">
             <div class="form-group">
-                <div class="col-xs-5">
+                <div class="col-xs-4">
                     <input id="task" class="form-control" name="task" placeholder="Enter new task name..."> 
                 </div>    
-                <div class="col-xs-3">
+                <div class="col-xs-2">
                     <input id="project" class="form-control" name="project" placeholder="Project name..."> 
                 </div><!-- END col -->   
-                <div class="col-xs-1">
+                <div class="col-xs-2">
                     <input id="time-start" class="form-control time-start" name="time-started" placeholder="Started..."> 
                 </div><!-- END col -->  
-                <div class="col-xs-1">
+                <div class="col-xs-2">
                     <input id="time-end" class="form-control time-end" name="time-end" placeholder="Ended..."> 
                 </div><!-- END col -->  
                 <div class="col-xs-2">
