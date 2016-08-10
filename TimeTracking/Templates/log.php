@@ -1,5 +1,5 @@
 <?php
-$tasks = new TimeTracking\Model\Tasks(); 
+$tasks = new TimeTracking\Model\Tasks();
 $format = new TimeTracking\Model\Formatting();
 $data = $input_array_from_controller['data'];
 $mode = $input_array_from_controller['mode'];

@@ -60,10 +60,13 @@ class IndexController {
      */
     public function index() {
         $mode = isset($_GET['mode'])? $_GET['mode'] : '';
+        //print_r($_GET); exit;
         if($mode == 'csv') {
            $this->jsonFileObject->jsonToCSV(); 
         }
-        $ret = $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'pomodoroTimer.php');
+        $ret = $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'header.php');
+        $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'menuItems.php');
+        $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'pomodoroTimer.php');
         $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'index.php',$this->getHoursSpent());
         $ret .= $this->obStart->getObStartInclude('Templates' . DIRECTORY_SEPARATOR . 'footer.php');
         return $ret;

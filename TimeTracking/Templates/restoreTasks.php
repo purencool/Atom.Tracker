@@ -23,6 +23,9 @@ if (is_array($data)) {
             } ?>
         </td>
         <td class="btn-cell">
+            <button data-id="<?php echo $task['id'] ?>" class="btn btn-block btn-primary btn-save"><i class="fa fa-save"></i></button>
+        </td>
+        <td class="btn-cell">
             <?php if ($task['date_end'] == '') { ?>
                <button data-id="<?php echo $task['id'] ?>" class="btn btn-block btn-primary btn-stop"><i class="fa fa-stop"></i></button>
             <?php } ?>

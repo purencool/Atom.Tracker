@@ -30,8 +30,10 @@ $(document).on('ready', function () {
 
     var url = globalPath; // Ajax file
 
-    // New Task Form:    
-    $('#form-new').on('submit', function (e) {
+    /**
+     * Add a new task form
+     */    
+    $('#new-task').on('submit', function (e) {
         e.preventDefault(); // Stop from submitting a form
         var data = $(this).serialize(); // Serial form data
         //alert(data);
@@ -45,9 +47,31 @@ $(document).on('ready', function () {
                 } // END if
             } // END success
         }); // END ajax
-    }); // END #form-new on submit
+    }); // END #new-task on submit
 
-    // Restore Task:    
+
+    /**
+     * Manually add a new task form
+     */    
+    $('#manually-add-time').on('submit', function (e) {
+        e.preventDefault(); // Stop from submitting a form
+        var data = $(this).serialize(); // Serial form data
+        //alert(data);
+        $.ajax({
+            url: url + '?mode=manual&' + data,
+            type: 'GET',
+            success: function (result) {
+                if (result !== 2) { //If no error
+                    build_log(); // Rebuild log table
+                    $('#task').val(''); // Empty task input Field
+                } // END if
+            } // END success
+        }); // END ajax
+    }); // END #new-task on submit
+
+    /**
+     * Restore task
+     */ 
     $('#log').on('click', '.btn-restore', function (e) {
         e.preventDefault(); // Stop from submitting a form
         var id = $(this).data('id'); // The task id
@@ -60,7 +84,7 @@ $(document).on('ready', function () {
                 } // END if
             } // END success
         }); // END ajax
-    }); // END #form-new on submit
+    }); // END #new-task on submit
 
 
     // Restore Tasks Button: 

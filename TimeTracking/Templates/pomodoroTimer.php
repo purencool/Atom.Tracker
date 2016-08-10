@@ -13,16 +13,18 @@
     <div class='pomodoro-left'>
         <div class="settings">
             <div class="break">
-                <div class="description">Break Length</div>
-                <div class="value">
-                    <span class="control db">-</span> <span class="v">5</span> <span class="control ib">+</span>
-                </div>
+                <div class="description">Break Length
+                    <span class="value">
+                        <span class="control db">-</span> <span class="v">5</span> <span class="control ib">+</span>
+                    </span>
+                </div>    
             </div>
             <div class="session">
-                <div class="description">Session Length</div>
-                <div class="value">
-                    <span class="control ds">-</span> <span class="v">25</span> <span class="control is">+</span>
-                </div>
+                <div class="description">Session Length
+                    <span class="value">
+                        <span class="control ds">-</span> <span class="v">25</span> <span class="control is">+</span>
+                    </span>
+                </div>    
             </div>
             <div class="next-pomodoro">
                 Next

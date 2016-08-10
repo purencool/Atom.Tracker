@@ -4,7 +4,8 @@
  * Time tracker
  * @param type $directory 
  */
-function loadClassPhp($directory) {
+function loadClassPhp($directory) 
+{
     if (is_dir($directory)) {
         $scan = scandir($directory);
         unset($scan[0], $scan[1]); //unset . and ..
